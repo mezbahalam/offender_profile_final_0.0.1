@@ -1,55 +1,53 @@
-<h1>Listing offenders</h1>
-
-<table>
+<br />
+<h1>Offender Profile</h1>
+<%= search_form_for @search, url: search_offenders_path, method: :post do |f| %>
+    <%= f.condition_fields do |c| %>
+        <%= render "condition_fields", f: c  %>
+    <% end %>
+    <br />
+    <p class="add_condition"><%=  link_to_add_fields "Add condition", f, :condition %></p>
+    <br />
+    <br />
+    <div class="action"><%= f.submit "Search" %></div>
+<% end %>
+<br />
+<br />
+<%= paginate @offenders %>
+<table id="offenders">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Age</th>
-      <th>Address</th>
-      <th>Mobile no</th>
-      <th>Occupation</th>
-      <th>Religion</th>
-      <th>Educational background</th>
-      <th>Crimes</th>
-      <th>Father name</th>
-      <th>Mother name</th>
-      <th>Father occupation</th>
-      <th>Mother occupation</th>
-      <th>Family income</th>
-      <th>Psychological status</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>Mobile no</th>
+    <th>Occupation</th>
+    <th>Crimes</th>
+    <th>Father name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @offenders.each do |offender| %>
+  <% @offenders.each do |offender| %>
       <tr>
+        <td><%= image_tag offender.image_url(:thumb) if offender.image? %></td>
         <td><%= offender.name %></td>
-        <td><%= offender.gender %></td>
         <td><%= offender.age %></td>
         <td><%= offender.address %></td>
         <td><%= offender.mobile_no %></td>
         <td><%= offender.occupation %></td>
-        <td><%= offender.religion %></td>
-        <td><%= offender.educational_background %></td>
         <td><%= offender.crimes %></td>
         <td><%= offender.father_name %></td>
-        <td><%= offender.mother_name %></td>
-        <td><%= offender.father_occupation %></td>
-        <td><%= offender.mother_occupation %></td>
-        <td><%= offender.family_income %></td>
-        <td><%= offender.psychological_status %></td>
-        <td><%= offender.image %></td>
-        <td><%= link_to 'Show', offender %></td>
-        <td><%= link_to 'Edit', edit_offender_path(offender) %></td>
-        <td><%= link_to 'Destroy', offender, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br />
+        <td><%= link_to 'Show', offender, class: 'back' %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
-
+<%= paginate @offenders %>
 <br>
 
-<%= link_to 'New Offender', new_offender_path %>
+

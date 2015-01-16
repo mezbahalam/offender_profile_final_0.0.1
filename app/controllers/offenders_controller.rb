@@ -1,5 +1,17 @@
 class OffendersController < InheritedResources::Base
 
+  def index
+    @search = Offender.search(params[:q])
+    @offenders= @search.result.page(params[:page]).per(5)
+    @search.build_condition
+  end
+
+  def search_home
+    @search = Offender.search(params[:q])
+    @offenders= @search.result
+    @search.build_condition
+  end
+
   private
 
     def offender_params
