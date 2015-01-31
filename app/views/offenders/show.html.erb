@@ -1,84 +1,90 @@
 <p id="notice"><%= notice %></p>
+<div class="well">
+  <div class="row">
+    <div class="span5">
+        <p>
+          <strong>Name:</strong>
+          <%= @offender.name %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @offender.name %>
-</p>
+        <p>
+          <strong>Gender:</strong>
+          <%= @offender.gender %>
+        </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @offender.gender %>
-</p>
+        <p>
+          <strong>Age:</strong>
+          <%= @offender.age %>
+        </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @offender.age %>
-</p>
+        <p>
+          <strong>Address:</strong>
+          <%= @offender.address %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @offender.address %>
-</p>
+        <p>
+          <strong>Mobile no:</strong>
+          <%= @offender.mobile_no %>
+        </p>
 
-<p>
-  <strong>Mobile no:</strong>
-  <%= @offender.mobile_no %>
-</p>
+        <p>
+          <strong>Occupation:</strong>
+          <%= @offender.occupation %>
+        </p>
 
-<p>
-  <strong>Occupation:</strong>
-  <%= @offender.occupation %>
-</p>
+        <p>
+          <strong>Religion:</strong>
+          <%= @offender.religion %>
+        </p>
 
-<p>
-  <strong>Religion:</strong>
-  <%= @offender.religion %>
-</p>
+        <p>
+          <strong>Educational background:</strong>
+          <%= @offender.educational_background %>
+        </p>
 
-<p>
-  <strong>Educational background:</strong>
-  <%= @offender.educational_background %>
-</p>
+        <p>
+          <strong>Crimes:</strong>
+          <%= @offender.crimes %>
+        </p>
 
-<p>
-  <strong>Crimes:</strong>
-  <%= @offender.crimes %>
-</p>
+        <p>
+          <strong>Father name:</strong>
+          <%= @offender.father_name %>
+        </p>
 
-<p>
-  <strong>Father name:</strong>
-  <%= @offender.father_name %>
-</p>
+        <p>
+          <strong>Mother name:</strong>
+          <%= @offender.mother_name %>
+        </p>
 
-<p>
-  <strong>Mother name:</strong>
-  <%= @offender.mother_name %>
-</p>
+        <p>
+          <strong>Father occupation:</strong>
+          <%= @offender.father_occupation %>
+        </p>
 
-<p>
-  <strong>Father occupation:</strong>
-  <%= @offender.father_occupation %>
-</p>
+        <p>
+          <strong>Mother occupation:</strong>
+          <%= @offender.mother_occupation %>
+        </p>
 
-<p>
-  <strong>Mother occupation:</strong>
-  <%= @offender.mother_occupation %>
-</p>
+        <p>
+          <strong>Family income:</strong>
+          <%= @offender.family_income %>
+        </p>
 
-<p>
-  <strong>Family income:</strong>
-  <%= @offender.family_income %>
-</p>
+        <p>
+          <strong>Psychological status:</strong>
+          <%= @offender.psychological_status %>
+        </p>
+    </div>
+    <div class="span4">
+        <strong id="imag">Image:</strong>
+        <p id="image">
 
-<p>
-  <strong>Psychological status:</strong>
-  <%= @offender.psychological_status %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@offender.image_url, :width => 250) if @offender.image.present? %>
-</p>
-
-<%= link_to 'Edit', edit_offender_path(@offender) %> |
-<%= link_to 'Back', offenders_path %>
+          <%= image_tag(@offender.image_url, :width => 250) if @offender.image.present? %>
+        </p>
+        </div>
+        <%= link_to 'Edit', edit_offender_path(@offender) %> |
+        <%= link_to 'Back', offenders_path %>
+    </div>
+</div>
